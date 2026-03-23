@@ -3,14 +3,20 @@ import MuteIcon from './img/mute.png'
 import SoundIcon from './img/sound.png'
 import Sena from './img/sena.jpg'
 import wendingImg from './img/wendingImg.jpg'
+import wendingHall from './img/wendingHall.png'
 import Map from './img/map.png'
+import Call from './img/call.png'
+import Telegram from './img/telegram.png'
+import Instagram from './img/instagram.png'
+import CallIcon from './img/callIcon.png'
+import WebIcon from './img/web.png'
 import Music from './img/Ordinary.ogg'
 import "./style.css";
 import "./style.scss";
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({});
-  const [musicOn, setMusicOn] = useState(false);
+  const [musicOn, setMusicOn] = useState(true);
 
   const weddingDate = new Date("2026-05-05T18:00:00");
 
@@ -33,16 +39,16 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
-//   useEffect(() => {
-//   const audio = document.getElementById("music");
+  useEffect(() => {
+  const audio = document.getElementById("music");
 
-//   const playMusic = () => {
-//     audio.play();
-//     document.removeEventListener("click", playMusic);
-//   };
+  const playMusic = () => {
+    audio.play();
+    document.removeEventListener("click", playMusic);
+  };
 
-//   document.addEventListener("click", playMusic);
-// }, []);
+  document.addEventListener("click", playMusic);
+}, []);
 
   const toggleMusic = () => {
     const audio = document.getElementById("music");
@@ -108,10 +114,10 @@ function App() {
           </a>
         </div>
 
-          <div className="donateText">
-            <h2>To'yona</h2>
-            <p>Agar bizni tabriklab to'yona jo'natmoqchi bo'lsangiz, quyidagi karta raqamidan foydalanishingiz mumkin!</p>
-          </div>
+        <div className="donateText">
+          <h2>To'yona</h2>
+          <p>Agar bizni tabriklab to'yona jo'natmoqchi bo'lsangiz, quyidagi karta raqamidan foydalanishingiz mumkin!</p>
+        </div>
         <div className="donateInfo">
           <span>Karta egasi</span>
           <h2>Farhod Mannopov</h2>
@@ -120,9 +126,21 @@ function App() {
           <button className="btn" onClick={copyCard}>Nusxalash</button>
         </div>
 
+        <img className="wendingHall" src={wendingHall} alt="wendingHall" />
+
         <div className="contact">
           <h3>Aloqa uchun</h3>
-          <p>+998 90 123 45 67</p>
+          <a href="tel:+998500105610"><img src={Call} alt="call" /> +998 90 123 45 67</a>
+        </div>
+
+        <div className="myInfo">
+          <h2>Zakaz berish uchun</h2>
+          <div>
+            <a href="https://t.me/inSITE_marketing" target="_blank"><img src={Telegram} alt="Telegram" />inSite Marketing</a>
+            <a href="https://www.instagram.com/marketing.insite" target="_blank"><img src={Instagram} alt="Instagram" />marketing.insite</a>
+            <a className="myInfoA" href="https://in-site-marketing.vercel.app/" target="_blank"><img src={WebIcon} alt="Web icon" />inSiteMarketing.uz</a>
+            <a className="myInfoA" href="tel:+998500105610"><img src={CallIcon} alt="Call icon"  target="_blank"/>+998 (50) 010-56-10</a>
+          </div>
         </div>
       </div>
     </section>

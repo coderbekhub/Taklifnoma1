@@ -2,8 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
-    // background: #fdf7f2;
-    background: #e7ba82;
+  // background: #fdf7f2;
+  background: #e7ba82;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }
 
 .taklifnoma {
@@ -47,29 +52,27 @@ body {
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
-            mask-composite: exclude;
-
+    mask-composite: exclude;
     pointer-events: none;
   }
 
   .photo-frame {
     img {
-        border: 1px solid rgba(200, 170, 120, 0.3);
-        padding: 5px;
-        width: 300px;
-        height: 330px;
-        object-fit: cover;
-        cursor: pointer;
-        &:hover {
-            transform: translateY(-5px);
-            transition: 0.3s ease;
-    
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.12),
-                inset 0 0 0 2px rgba(255, 255, 255, 0.6);
-            }
+      border: 1px solid rgba(200, 170, 120, 0.3);
+      padding: 5px;
+      width: 300px;
+      height: 330px;
+      object-fit: cover;
+      cursor: pointer;
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.12),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+      &:hover {
+        transform: translateY(-5px);
+        transition: 0.3s ease;
+        }
+      }
     }
-  }
 
   .initials {
     font-family: "Playfair Display", serif;
@@ -89,59 +92,162 @@ body {
 }
 
 .text {
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: #6b5b4f;
-    margin: 15px 0;
-    text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #6b5b4f;
+  margin: 15px 0;
+  text-transform: uppercase;
     
 }
 
-/* 🔥 COUNTDOWN */
 .countdown {
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    margin: 10px 0;
-    font-weight: 500;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  margin: 10px 0;
+  font-weight: 500;
 }
 
-/* 🔥 INFO */
 .info {
-    font-family: "Dancing Script", cursive;
-    margin: 10px 0 20px;
-    font-size: 64px;
-    font-weight: 900;
+  font-family: "Dancing Script", cursive;
+  margin: 10px 0 20px;
+  font-size: 64px;
+  font-weight: 900;
 }
 
 .wendingImg {
-    img {
-        width: 50%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 20px;
-    }
-    margin-bottom: 20px;
+  img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  margin-bottom: 20px;
 }
 
     .maps {
-        img {
-            width: 400px;
-            height: auto;
-        }
+      margin-bottom: 20px;
+      img {
+        width: 400px;
+        height: auto;
+      }
+    }
+
+    .donateText {
+      font-family: "Open Sans", sans-serif;
+      h2 {
+        margin: 0;
+        margin-bottom: 15px;
+      }
+
+      p {
+        margin: 0;
+        margin-bottom: 25px;
+      }
     }
 
     .donateInfo {
-        width: 350px;
-        height: auto;
+      width: 350px;
+      height: auto;
+      border-radius: 20px;
+      // background: #e7ba82b2;
+      margin: 0 auto;
+      padding: 15px;
+      margin-bottom: 30px;
+      border: 3px solid #e7ba82;
+      border-radius: 25px;
+
+      span {
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      h2 {
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-weight: 600;
+      }
+    }
+
+    .wendingHall {
+      display: block;
+      width: 400px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .contact {
+      margin: 0 auto;
+      border: 3px solid #e7ba82;
+      border-radius: 25px;
+      width: 400px;
+      margin-bottom: 60px;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        margin-bottom: 20px;
+        img {
+          width: 24px;
+          height: 24px;
+          padding-right: 7px;
+        }
+      }
+    }
+
+    .myInfo {
+      position: relative;
+      border-radius: 20px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        padding: 2px;
         border-radius: 20px;
-        background: #e7ba82;
+        background: linear-gradient(45deg, #c59d5f, #fdf6f0, #c59d5f);
+        -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      }
+      h2 {
+        padding-top: 20px;
+        font-weight: 600;
+      }
+
+      div {
+        width: 390px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
         margin: 0 auto;
-        padding: 15px;
+        padding-bottom: 20px;
+        a {
+          display: flex;
+          align-items: center;
+          padding-right: 20px;
+          img {
+            width: 24px;
+            height: 24px;
+            padding-right: 7px;
+          }
+        }
+
+        .myInfoA {
+          padding-top: 15px;
+        }
+      }
     }
 }
 
-/* 🔥 CORNER STYLE */
 .corner {
   position: absolute;
   width: 26px;

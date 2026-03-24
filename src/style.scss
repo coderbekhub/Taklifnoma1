@@ -296,6 +296,76 @@ a {
   border-radius: 0 0 12px 0;
 }
 
+@media (max-width: 400px) {
+  .taklifnoma {
+    padding: 15px 8px;
+    border-radius: 20px;
+
+    .initials {
+      font-size: 22px;
+      letter-spacing: 3px;
+    }
+
+    .names {
+      font-size: 28px;
+      top: -10px;
+    }
+
+    .text {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .countdown {
+      font-size: 12px;
+    }
+
+    .info {
+      font-size: 28px;
+    }
+
+    .photo-frame img {
+      max-width: 260px;
+    }
+
+    .wendingImg img {
+      max-width: 240px;
+    }
+
+    .donateInfo {
+      max-width: 280px;
+      padding: 10px;
+    }
+
+    .contact {
+      max-width: 300px;
+
+      a {
+        font-size: 13px;
+      }
+    }
+
+    .myInfo div {
+      flex-direction: column;
+
+      a {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .music-btn {
+    top: 8px;
+    right: 8px;
+    padding: 8px;
+  }
+
+  .soundIcons {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 @media (max-width: 480px) {
   .taklifnoma {
     padding: 20px 10px;
@@ -328,3 +398,4 @@ a {
     padding: 25px 15px;
   }
 }
+

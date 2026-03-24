@@ -1,17 +1,446 @@
+// @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+// body {
+//   background: #e7ba82;
+//   overflow-x: hidden;
+//   font-family: "Open Sans", sans-serif;
+//   margin: 0;
+// }
+
+// * {
+//   box-sizing: border-box;
+// }
+
+// .container {
+//   max-width: 600px;
+//   text-align: center;
+//   margin: 0 auto;
+// }
+
+// .initials {
+//   font-family: 'Playfair Display', serif;
+//   font-size: 48px;
+//   color: #c59d5f;
+// }
+
+// .photo {
+//   width: 300px;
+//   border-radius: 20px;
+//   margin: 20px 0;
+// }
+
+// .text {
+//   font-size: 16px;
+//   margin-bottom: 20px;
+// }
+
+// .countdown {
+//   font-size: 20px;
+//   margin: 10px 0;
+// }
+
+// .info {
+//   margin-bottom: 15px;
+// }
+
+// .btn {
+//   padding: 10px 20px;
+//   border: none;
+//   border-radius: 10px;
+//   background: #e7ba82;
+//   color: #fff;
+//   margin: 10px;
+//   cursor: pointer;
+//   font-weight: 600;
+// }
+
+// .music-btn {
+//   position: fixed;
+//   top: 20px;
+//   right: 20px;
+//   border: none;
+//   background: #c59d5f;
+//   color: white;
+//   padding: 10px;
+//   border-radius: 50%;
+// }
+
+// .section {
+//   margin-top: 30px;
+// }
+
+// .soundIcons {
+//   width: 24px;
+//   height: 24px;
+//   cursor: pointer;
+// }
+
+
+// img {
+//   max-width: 100%;
+//   height: auto;
+// }
+
+// a {
+//   text-decoration: none;
+//   color: #000;
+// }
+
+// .taklifnoma {
+//   .taklifnomaCard {
+//     position: relative;
+//     top: 20px;
+//     margin-bottom: 60px;
+//     padding: 40px 25px;
+//     background: #fff;
+//     border-radius: 28px;
+  
+//     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+//     border: 1px solid rgba(200, 170, 120, 0.3);
+ 
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       inset: 12px;
+//       border-radius: 22px;
+//       border: 1px solid rgba(0, 0, 0, 0.06);
+//       pointer-events: none;
+//     }
+
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       inset: 0;
+//       border-radius: 28px;
+//       padding: 1px;
+//     //   background: linear-gradient(
+//     //     135deg,
+//     //     rgba(212, 175, 55, 0.6),
+//     //     rgba(255, 255, 255, 0.3),
+//     //     rgba(212, 175, 55, 0.6)
+//     // );
+//   }
+
+//   .photo-frame {
+//     img {
+//       border: 1px solid rgba(200, 170, 120, 0.3);
+//       padding: 5px;
+//       width: 300px;
+//       height: 330px;
+//       object-fit: cover;
+//       cursor: pointer;
+//       box-shadow:
+//         0 15px 40px rgba(0, 0, 0, 0.12),
+//         inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+//       &:hover {
+//         transform: translateY(-5px);
+//         transition: 0.3s ease;
+//         }
+//       }
+//     }
+
+//   .initials {
+//     font-family: "Playfair Display", serif;
+//     font-size: 42px;
+//     font-weight: 600;
+//     letter-spacing: 6px;
+//   }
+
+//   .names {
+//     font-family: "Dancing Script", cursive;
+//     font-size: 58px;
+//     font-weight: 600;
+//     color: #444;
+//     margin-bottom: -10px;
+//     position: relative;
+//     top: -40px;
+//   }
+
+//   .text {
+//     font-family: "Open Sans", sans-serif;
+//     font-size: 20px;
+//     font-weight: 500;
+//     color: #6b5b4f;
+//     margin: 15px 0;
+//     text-transform: uppercase;
+//   }
+
+//   .countdown {
+//     font-family: "Open Sans", sans-serif;
+//     font-size: 16px;
+//     margin: 10px 0;
+//     font-weight: 500;
+//   }
+
+//   .info {
+//     font-family: "Dancing Script", cursive;
+//     margin: 10px 0 20px;
+//     font-size: 64px;
+//     font-weight: 900;
+//   }
+
+//   .wendingImg {
+//     img {
+//       width: 50%;
+//       height: auto;
+//       object-fit: cover;
+//       border-radius: 20px;
+//     }
+//     margin-bottom: 20px;
+//   }
+
+//   .maps {
+//     margin-bottom: 20px;
+//     img {
+//       width: 400px;
+//       height: auto;
+//     }
+//   }
+
+//   .donateText {
+//     font-family: "Open Sans", sans-serif;
+//     h2 {
+//       margin: 0;
+//       margin-bottom: 15px;
+//     }
+
+//     p {
+//       margin: 0;
+//       margin-bottom: 25px;
+//     }
+//   }
+
+//   .donateInfo {
+//     width: 350px;
+//     height: auto;
+//     border-radius: 20px;
+//     // background: #e7ba82b2;
+//     margin: 0 auto;
+//     padding: 15px;
+//     margin-bottom: 30px;
+//     border: 3px solid #e7ba82;
+//     border-radius: 25px;
+
+//     span {
+//       margin-bottom: 10px;
+//       display: block;
+//     }
+
+//     h2 {
+//       margin: 0;
+//       margin-bottom: 10px;
+//     }
+
+//     p {
+//       font-weight: 600;
+//     }
+//   }
+
+//   .wendingHall {
+//     display: block;
+//     width: 400px;
+//     height: auto;
+//     margin: 0 auto;
+//   }
+
+//   .contact {
+//     margin: 0 auto;
+//     border: 3px solid #e7ba82;
+//     border-radius: 25px;
+//     width: 400px;
+//     margin-bottom: 60px;
+//     a {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       font-weight: 500;
+//       margin-bottom: 20px;
+//       img {
+//         width: 24px;
+//         height: 24px;
+//         padding-right: 7px;
+//       }
+//     }
+//   }
+
+//   .myInfo {
+//     position: relative;
+//     border-radius: 20px;
+//     z-index: 100;
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       inset: 0;
+//       pointer-events: none;
+//       padding: 2px;
+//       border-radius: 20px;
+//       background: linear-gradient(45deg, #c59d5f, #fdf6f0, #c59d5f);
+//       -webkit-mask: 
+//       linear-gradient(#fff 0 0) content-box, 
+//       linear-gradient(#fff 0 0);
+//       -webkit-mask-composite: xor;
+//       mask-composite: exclude;
+//     }
+//     h2 {
+//       padding-top: 20px;
+//       font-weight: 600;
+//     }
+
+//     div {
+//       width: 390px;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       flex-wrap: wrap;
+//       margin: 0 auto;
+//       padding-bottom: 20px;
+//       a {
+//         display: flex;
+//         align-items: center;
+//         padding-right: 20px;
+//         img {
+//           width: 24px;
+//           height: 24px;
+//           padding-right: 3px;
+//         }
+//       }
+
+//       .myInfoA {
+//         padding-top: 15px;
+//       }
+//     }
+//   }
+
+//   .corner {
+//     position: absolute;
+//     width: 26px;
+//     height: 26px;
+//     border: 2px solid rgba(200, 170, 120, 0.7);
+//     z-index: 2;
+//   }
+
+//   .top-left {
+//     top: 14px;
+//     left: 14px;
+//     border-right: none;
+//     border-bottom: none;
+//     border-radius: 12px 0 0 0;
+//   }
+
+//   .top-right {
+//     top: 14px;
+//     right: 14px;
+//     border-left: none;
+//     border-bottom: none;
+//     border-radius: 0 12px 0 0;
+//   }
+
+//   .bottom-left {
+//     bottom: 14px;
+//     left: 14px;
+//     border-right: none;
+//     border-top: none;
+//     border-radius: 0 0 0 12px;
+//   }
+
+//   .bottom-right {
+//     bottom: 14px;
+//     right: 14px;
+//     border-left: none;
+//     border-top: none;
+//     border-radius: 0 0 12px 0;
+//   }
+// }
+// }
+
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
   background: #e7ba82;
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
 }
 
 * {
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 600px;
+  width: 100%; // ✅ qo‘shildi
+  padding: 0 10px; // ✅ qo‘shildi
+  text-align: center;
+  margin: 0 auto;
+}
+
+.initials {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: #c59d5f;
+}
+
+.photo {
+  width: 100%; // ✅ fix
+  max-width: 300px; // ✅ fix
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.text {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.countdown {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.info {
+  margin-bottom: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #e7ba82;
+  color: #fff;
+  margin: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: #c59d5f;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+.soundIcons {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
 img {
   max-width: 100%;
   height: auto;
+  display: block; // ✅ qo‘shildi
 }
 
 a {
@@ -20,67 +449,49 @@ a {
 }
 
 .taklifnoma {
-  position: relative;
-  top: 20px;
-  width: 600px;
-  margin: 0 auto 60px;
-  padding: 40px 25px;
-  background: #fff;
-  border-radius: 28px;
-  overflow: hidden;
-
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(200, 170, 120, 0.3);
-
-  // ichki ramka
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border-radius: 22px;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    pointer-events: none;
-  }
-
-  // gold border
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
+  .taklifnomaCard {
+    position: relative;
+    top: 20px;
+    margin-bottom: 60px;
+    padding: 40px 25px;
+    background: #fff;
     border-radius: 28px;
-    padding: 1px;
-    background: linear-gradient(
-      135deg,
-      rgba(212, 175, 55, 0.6),
-      rgba(255, 255, 255, 0.3),
-      rgba(212, 175, 55, 0.6)
-    );
+    overflow: hidden; // ✅ MUHIM FIX
+  
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(200, 170, 120, 0.3);
+ 
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 22px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      pointer-events: none;
+    }
 
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      padding: 1px;
+    }
 
   .photo-frame {
     img {
       border: 1px solid rgba(200, 170, 120, 0.3);
       padding: 5px;
-      width: 300px;
-      height: 330px;
       object-fit: cover;
-      cursor: pointer;
       box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.12),
         inset 0 0 0 2px rgba(255, 255, 255, 0.6);
       &:hover {
         transform: translateY(-5px);
         transition: 0.3s ease;
-        }
       }
     }
+  }
 
   .initials {
     font-family: "Playfair Display", serif;
@@ -97,266 +508,173 @@ a {
     margin-bottom: -10px;
     position: relative;
     top: -40px;
-}
-
-.text {
-  font-family: "Open Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  color: #6b5b4f;
-  margin: 15px 0;
-  text-transform: uppercase;
-    
-}
-
-.countdown {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  margin: 10px 0;
-  font-weight: 500;
-}
-
-.info {
-  font-family: "Dancing Script", cursive;
-  margin: 10px 0 20px;
-  font-size: 64px;
-  font-weight: 900;
-}
-
-.wendingImg {
-  img {
-    width: 50%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 20px;
   }
-  margin-bottom: 20px;
-}
 
-    .maps {
-      margin-bottom: 20px;
+  .text {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #6b5b4f;
+    margin: 15px 0;
+    text-transform: uppercase;
+  }
+
+  .countdown {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    margin: 10px 0;
+    font-weight: 500;
+  }
+
+  .info {
+    font-family: "Dancing Script", cursive;
+    margin: 10px 0 20px;
+    font-size: 64px;
+    font-weight: 900;
+  }
+
+  .wendingImg {
+    img {
+      width: 100%; // ✅ fix
+      max-width: 300px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 0 auto;
+    }
+    margin-bottom: 20px;
+  }
+
+  .maps {
+    margin-bottom: 20px;
+
+    a {
       img {
-        width: 400px;
+        margin: 0 auto;  
+        width: 100%; // ✅ MUHIM FIX
+        max-width: 400px;
         height: auto;
       }
     }
+  }
 
-    .donateText {
-      font-family: "Open Sans", sans-serif;
-      h2 {
-        margin: 0;
-        margin-bottom: 15px;
-      }
+  .donateText {
+    font-family: "Open Sans", sans-serif;
+  }
 
-      p {
-        margin: 0;
-        margin-bottom: 25px;
-      }
-    }
+  .donateInfo {
+    width: 100%; // ✅ fix
+    max-width: 350px;
+    margin: 0 auto;
+  }
 
-    .donateInfo {
-      width: 350px;
-      height: auto;
-      border-radius: 20px;
-      // background: #e7ba82b2;
-      margin: 0 auto;
-      padding: 15px;
-      margin-bottom: 30px;
-      border: 3px solid #e7ba82;
-      border-radius: 25px;
+  .wendingHall {
+    display: block;
+    width: 100%; // ✅ fix
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+  }
 
-      span {
-        margin-bottom: 10px;
-        display: block;
-      }
+  .contact {
+    margin: 0 auto;
+    border: 3px solid #e7ba82;
+    border-radius: 25px;
+    width: 100%; // ✅ fix
+    max-width: 400px;
+    margin-bottom: 60px;
 
-      h2 {
-        margin: 0;
-        margin-bottom: 10px;
-      }
-
-      p {
-        font-weight: 600;
-      }
-    }
-
-    .wendingHall {
-      display: block;
-      width: 400px;
-      height: auto;
-      margin: 0 auto;
-    }
-
-    .contact {
-      margin: 0 auto;
-      border: 3px solid #e7ba82;
-      border-radius: 25px;
-      width: 400px;
-      margin-bottom: 60px;
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 500;
-        margin-bottom: 20px;
-        img {
-          width: 24px;
-          height: 24px;
-          padding-right: 7px;
-        }
-      }
-    }
-
-    .myInfo {
-      position: relative;
-      border-radius: 20px;
-
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        padding: 2px;
-        border-radius: 20px;
-        background: linear-gradient(45deg, #c59d5f, #fdf6f0, #c59d5f);
-        -webkit-mask: 
-          linear-gradient(#fff 0 0) content-box, 
-          linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-      }
-      h2 {
-        padding-top: 20px;
-        font-weight: 600;
-      }
-
-      div {
-        width: 390px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        padding-bottom: 20px;
-        a {
-          display: flex;
-          align-items: center;
-          padding-right: 20px;
-          img {
-            width: 24px;
-            height: 24px;
-            padding-right: 7px;
-          }
-        }
-
-        .myInfoA {
-          padding-top: 15px;
-        }
-      }
-    }
-}
-
-.corner {
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  border: 2px solid rgba(200, 170, 120, 0.7);
-  z-index: 2;
-}
-
-.top-left {
-  top: 14px;
-  left: 14px;
-  border-right: none;
-  border-bottom: none;
-  border-radius: 12px 0 0 0;
-}
-
-.top-right {
-  top: 14px;
-  right: 14px;
-  border-left: none;
-  border-bottom: none;
-  border-radius: 0 12px 0 0;
-}
-
-.bottom-left {
-  bottom: 14px;
-  left: 14px;
-  border-right: none;
-  border-top: none;
-  border-radius: 0 0 0 12px;
-}
-
-.bottom-right {
-  bottom: 14px;
-  right: 14px;
-  border-left: none;
-  border-top: none;
-  border-radius: 0 0 12px 0;
-}
-
-@media (max-width: 400px) {
-  .taklifnoma {
-    padding: 15px 8px;
-    border-radius: 20px;
-
-    .initials {
-      font-size: 22px;
-      letter-spacing: 3px;
-    }
-
-    .names {
-      font-size: 28px;
-      top: -10px;
-    }
-
-    .text {
-      font-size: 13px;
-      line-height: 1.4;
-    }
-
-    .countdown {
-      font-size: 12px;
-    }
-
-    .info {
-      font-size: 28px;
-    }
-
-    .photo-frame img {
-      max-width: 260px;
-    }
-
-    .wendingImg img {
-      max-width: 240px;
-    }
-
-    .donateInfo {
-      max-width: 280px;
-      padding: 10px;
-    }
-
-    .contact {
-      max-width: 300px;
-
-      a {
-        font-size: 13px;
-      }
-    }
-
-    .myInfo div {
-      flex-direction: column;
-
-      a {
-        font-size: 13px;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 20px;
+      img {
+        width: 24px;
+        height: 24px;
+        margin-right: 7px;
       }
     }
   }
 
+  .myInfo {
+    div {
+      width: 100%; // ✅ fix
+      max-width: 390px;
+      flex-wrap: wrap;
+      margin: 0 auto;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 7px;
+        }
+      }
+    }
+  }
+}
+
+/* 📱 RESPONSIVE */
+
+/* tablet */
+@media (max-width: 768px) {
+  .taklifnomaCard {
+    padding: 30px 15px;
+  }
+}
+
+/* telefon */
+@media (max-width: 480px) {
+  .taklifnomaCard {
+    padding: 20px 10px;
+  }
+
+  .initials {
+    font-size: 30px;
+  }
+
+  .names {
+    font-size: 34px;
+  }
+
+  .info {
+    font-size: 34px;
+  }
+}
+
+/* kichik telefon */
+@media (max-width: 400px) {
+  .taklifnomaCard {
+    padding: 15px 8px;
+  }
+
+  .initials {
+    font-size: 24px;
+  }
+
+  .names {
+    font-size: 28px;
+  }
+
+  .text {
+    font-size: 13px;
+  }
+
+  .countdown {
+    font-size: 12px;
+  }
+
+  .info {
+    font-size: 28px;
+  }
+
   .music-btn {
-    top: 8px;
-    right: 8px;
+    top: 10px;
+    right: 10px;
     padding: 8px;
   }
 
@@ -364,38 +682,4 @@ a {
     width: 20px;
     height: 20px;
   }
-}
-
-@media (max-width: 480px) {
-  .taklifnoma {
-    padding: 20px 10px;
-
-    .names {
-      font-size: 34px;
-    }
-
-    .initials {
-      font-size: 26px;
-    }
-
-    .info {
-      font-size: 34px;
-    }
-
-    .text {
-      font-size: 14px;
-    }
-
-    .countdown {
-      font-size: 13px;
-    }
-  }
-}
-
-/* 📱 TABLET */
-@media (max-width: 768px) {
-  .taklifnoma {
-    padding: 25px 15px;
-  }
-}
-
+}}

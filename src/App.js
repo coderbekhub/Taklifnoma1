@@ -67,79 +67,80 @@ function App() {
 
   return (
     <section className="taklifnoma">
-      <div className="corner top-left"></div>
-      <div className="corner top-right"></div>
-      <div className="corner bottom-left"></div>
-      <div className="corner bottom-right"></div>
-
       <div className="container">
+        <div className="taklifnomaCard">
+        <div className="corner top-left"></div>
+        <div className="corner top-right"></div>
+        <div className="corner bottom-left"></div>
+        <div className="corner bottom-right"></div>
         <audio id="music" loop>
           <source src={Music} type="audio/mp3"/>
         </audio>
 
-        <button className="music-btn" onClick={toggleMusic}>
-          {musicOn ? Mute : Sound}
-        </button>
-
-        <h1 className="initials">F & Sh</h1>
-        <h2 className="names">Farhod & Shirin</h2>
-
-        <div className="photo-frame">
-          <img className="photo" src={Sena} alt="couple" />
-        </div>
-
-        <p className="text">
-          sizni ushbu unutilmas lahzalarga guvoh bo’lishga taklif qilamiz
-        </p>
-
-        <div className="countdown">
-          {timeLeft.days} kun {timeLeft.hours} soat {timeLeft.minutes} daqiqa
-        </div>
-
-        <div className="info">05/05/2026</div>
-
-        <div className="wendingImg">
-          <img src={wendingImg} alt="wending img"></img>
-        </div>
-
-        <div className="maps">
-          <button
-            className="btn"
-            onClick={() => window.open("https://maps.google.com")}
-          >
-            Lokatsiyani ochish
+          <button className="music-btn" onClick={toggleMusic}>
+            {musicOn ? Mute : Sound}
           </button>
-          <a href="https://maps.google.com" target="_blank">
-            <img src={Map} alt="map" />
-          </a>
-        </div>
 
-        <div className="donateText">
-          <h2>To'yona</h2>
-          <p>Agar bizni tabriklab to'yona jo'natmoqchi bo'lsangiz, quyidagi karta raqamidan foydalanishingiz mumkin!</p>
-        </div>
-        <div className="donateInfo">
-          <span>Karta egasi</span>
-          <h2>Farhod Mannopov</h2>
-          <span>Karta raqami</span>
-          <p>8600 1234 5678 9012</p>
-          <button className="btn" onClick={copyCard}>Nusxalash</button>
-        </div>
+          <h1 className="initials">F & Sh</h1>
+          <h2 className="names">Farhod & Shirin</h2>
 
-        <img className="wendingHall" src={wendingHall} alt="wendingHall" />
+          <div className="photo-frame">
+            <img className="photo" src={Sena} alt="couple" />
+          </div>
 
-        <div className="contact">
-          <h3>Aloqa uchun</h3>
-          <a href="tel:+998500105610"><img src={Call} alt="call" /> +998 90 123 45 67</a>
-        </div>
+          <p className="text">
+            sizni ushbu unutilmas lahzalarga guvoh bo’lishga taklif qilamiz
+          </p>
 
-        <div className="myInfo">
-          <h2>Zakaz berish uchun</h2>
-          <div>
-            <a href="https://t.me/inSITE_marketing" target="_blank"><img src={Telegram} alt="Telegram" />inSite Marketing</a>
-            <a href="https://www.instagram.com/marketing.insite" target="_blank"><img src={Instagram} alt="Instagram" />marketing.insite</a>
-            <a className="myInfoA" href="https://in-site-marketing.vercel.app/" target="_blank"><img src={WebIcon} alt="Web icon" />inSiteMarketing.uz</a>
-            <a className="myInfoA" href="tel:+998500105610"><img src={CallIcon} alt="Call icon"  target="_blank"/>+998 (50) 010-56-10</a>
+          <div className="countdown">
+            {timeLeft.days} kun {timeLeft.hours} soat {timeLeft.minutes} daqiqa
+          </div>
+
+          <div className="info">05/05/2026</div>
+
+          <div className="wendingImg">
+            <img src={wendingImg} alt="wending img"></img>
+          </div>
+
+          <div className="maps">
+            <button
+              className="btn"
+              onClick={() => window.open("https://maps.google.com")}
+            >
+              Lokatsiyani ochish
+            </button>
+            <a href="https://maps.google.com" target="_blank">
+              <img src={Map} alt="map" />
+            </a>
+          </div>
+
+          <div className="donateText">
+            <h2>To'yona</h2>
+            <p>Agar bizni tabriklab to'yona jo'natmoqchi bo'lsangiz, quyidagi karta raqamidan foydalanishingiz mumkin!</p>
+          </div>
+          <div className="donateInfo">
+            <span>Karta egasi</span>
+            <h2>Farhod Mannopov</h2>
+            <span>Karta raqami</span>
+            <p>8600 1234 5678 9012</p>
+            <button className="btn" onClick={copyCard}>Nusxalash</button>
+          </div>
+
+          <img className="wendingHall" src={wendingHall} alt="wendingHall" />
+
+          <div className="contact">
+            <h3>Aloqa uchun</h3>
+            <a href="tel:+998500105610"><img src={Call} alt="call" /> +998 90 123 45 67</a>
+          </div>
+
+          <div className="myInfo">
+            <h2>Zakaz berish uchun</h2>
+            <div>
+              <a href="https://t.me/inSITE_marketing" target="_blank"><img src={Telegram} alt="Telegram" />inSite Marketing</a>
+              <a href="https://www.instagram.com/marketing.insite" target="_blank"><img src={Instagram} alt="Instagram" />marketing.insite</a>
+              <a className="myInfoA" href="https://in-site-marketing.vercel.app/" target="_blank"><img src={WebIcon} alt="Web icon" />inSiteMarketing.uz</a>
+              <a className="myInfoA" href="tel:+998500105610"><img src={CallIcon} alt="Call icon"  target="_blank"/>+998 (50) 010-56-10</a>
+            </div>
           </div>
         </div>
       </div>

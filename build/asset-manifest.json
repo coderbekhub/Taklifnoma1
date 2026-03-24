@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2fe72a06.css",
+    "main.js": "/static/js/main.7cca94fc.js",
+    "static/media/wendingHall.png": "/static/media/wendingHall.c318b809bef7cdbd996a.png",
+    "static/media/Ordinary.ogg": "/static/media/Ordinary.cec1a868a0562ab94c94.ogg",
+    "static/media/wendingImg.jpg": "/static/media/wendingImg.e18ce7990ff1316d6a87.jpg",
+    "static/media/map.png": "/static/media/map.de8e35fd8aea20fa1365.png",
+    "static/media/sena.jpg": "/static/media/sena.faf0dadab3ae09f05f37.jpg",
+    "static/media/instagram.png": "/static/media/instagram.1792ff30fb032c94685c.png",
+    "static/media/callIcon.png": "/static/media/callIcon.0f351ccf53cadfc95d4d.png",
+    "static/media/web.png": "/static/media/web.2fe2d750f14f6f138b4d.png",
+    "static/media/telegram.png": "/static/media/telegram.e35b4646f1198474261b.png",
+    "static/media/call.png": "/static/media/call.4421d5c0aa4aef2a938e.png",
+    "index.html": "/index.html",
+    "main.2fe72a06.css.map": "/static/css/main.2fe72a06.css.map",
+    "main.7cca94fc.js.map": "/static/js/main.7cca94fc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fe72a06.css",
+    "static/js/main.7cca94fc.js"
+  ]
+}

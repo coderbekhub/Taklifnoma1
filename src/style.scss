@@ -2,8 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
-  // background: #fdf7f2;
   background: #e7ba82;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -286,4 +294,37 @@ a {
   border-left: none;
   border-top: none;
   border-radius: 0 0 12px 0;
+}
+
+@media (max-width: 480px) {
+  .taklifnoma {
+    padding: 20px 10px;
+
+    .names {
+      font-size: 34px;
+    }
+
+    .initials {
+      font-size: 26px;
+    }
+
+    .info {
+      font-size: 34px;
+    }
+
+    .text {
+      font-size: 14px;
+    }
+
+    .countdown {
+      font-size: 13px;
+    }
+  }
+}
+
+/* 📱 TABLET */
+@media (max-width: 768px) {
+  .taklifnoma {
+    padding: 25px 15px;
+  }
 }

@@ -16,7 +16,7 @@ import "./style.scss";
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({});
-  const [musicOn, setMusicOn] = useState(true);
+  const [musicOn, setMusicOn] = useState(false); // ✅ false
 
   const weddingDate = new Date("2026-05-05T18:00:00");
 
@@ -39,25 +39,40 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
+  // ✅ AUTO PLAY (desktop + first click mobile)
   useEffect(() => {
-  const audio = document.getElementById("music");
+    const audio = document.getElementById("music");
 
-  const playMusic = () => {
-    audio.play();
-    document.removeEventListener("click", playMusic);
-  };
+    const playMusic = () => {
+      if (!audio) return;
 
-  document.addEventListener("click", playMusic);
-}, []);
+      audio.play()
+        .then(() => setMusicOn(true))
+        .catch(() => {}); // mobile block qilsa ignore
+
+      document.removeEventListener("click", playMusic);
+      document.removeEventListener("touchstart", playMusic);
+    };
+
+    // desktop uchun
+    playMusic();
+
+    // mobile uchun
+    document.addEventListener("click", playMusic);
+    document.addEventListener("touchstart", playMusic);
+
+  }, []);
 
   const toggleMusic = () => {
     const audio = document.getElementById("music");
-    if (musicOn) {
-      audio.pause();
+    if (!audio) return;
+
+    if (audio.paused) {
+      audio.play().then(() => setMusicOn(true));
     } else {
-      audio.play();
+      audio.pause();
+      setMusicOn(false);
     }
-    setMusicOn(!musicOn);
   };
 
   const copyCard = () => {
@@ -69,13 +84,16 @@ function App() {
     <section className="taklifnoma">
       <div className="container">
         <div className="taklifnomaCard">
-        <div className="corner top-left"></div>
-        <div className="corner top-right"></div>
-        <div className="corner bottom-left"></div>
-        <div className="corner bottom-right"></div>
-        <audio id="music" loop>
-          <source src={Music} type="audio/mp3"/>
-        </audio>
+
+          <div className="corner top-left"></div>
+          <div className="corner top-right"></div>
+          <div className="corner bottom-left"></div>
+          <div className="corner bottom-right"></div>
+
+          {/* ✅ playsInline MUHIM */}
+          <audio id="music" loop playsInline>
+            <source src={Music} type="audio/mp3"/>
+          </audio>
 
           <button className="music-btn" onClick={toggleMusic}>
             {musicOn ? Mute : Sound}
@@ -99,7 +117,7 @@ function App() {
           <div className="info">05/05/2026</div>
 
           <div className="wendingImg">
-            <img src={wendingImg} alt="wending img"></img>
+            <img src={wendingImg} alt="wending img" />
           </div>
 
           <div className="maps">
@@ -118,6 +136,7 @@ function App() {
             <h2>To'yona</h2>
             <p>Agar bizni tabriklab to'yona jo'natmoqchi bo'lsangiz, quyidagi karta raqamidan foydalanishingiz mumkin!</p>
           </div>
+
           <div className="donateInfo">
             <span>Karta egasi</span>
             <h2>Farhod Mannopov</h2>
@@ -130,18 +149,29 @@ function App() {
 
           <div className="contact">
             <h3>Aloqa uchun</h3>
-            <a href="tel:+998500105610"><img src={Call} alt="call" /> +998 90 123 45 67</a>
+            <a href="tel:+998500105610">
+              <img src={Call} alt="call" /> +998 90 123 45 67
+            </a>
           </div>
 
           <div className="myInfo">
             <h2>Zakaz berish uchun</h2>
             <div>
-              <a href="https://t.me/inSITE_marketing" target="_blank"><img src={Telegram} alt="Telegram" />inSite Marketing</a>
-              <a href="https://www.instagram.com/marketing.insite" target="_blank"><img src={Instagram} alt="Instagram" />marketing.insite</a>
-              <a className="myInfoA" href="https://in-site-marketing.vercel.app/" target="_blank"><img src={WebIcon} alt="Web icon" />inSiteMarketing.uz</a>
-              <a className="myInfoA" href="tel:+998500105610"><img src={CallIcon} alt="Call icon"  target="_blank"/>+998 (50) 010-56-10</a>
+              <a href="https://t.me/inSITE_marketing" target="_blank">
+                <img src={Telegram} alt="Telegram" />inSite Marketing
+              </a>
+              <a href="https://www.instagram.com/marketing.insite" target="_blank">
+                <img src={Instagram} alt="Instagram" />marketing.insite
+              </a>
+              <a className="myInfoA" href="https://in-site-marketing.vercel.app/" target="_blank">
+                <img src={WebIcon} alt="Web icon" />inSiteMarketing.uz
+              </a>
+              <a className="myInfoA" href="tel:+998500105610">
+                <img src={CallIcon} alt="Call icon" />+998 (50) 010-56-10
+              </a>
             </div>
           </div>
+
         </div>
       </div>
     </section>

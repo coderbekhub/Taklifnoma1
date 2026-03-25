@@ -16,7 +16,7 @@ import "./style.scss";
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({});
-  const [musicOn, setMusicOn] = useState(false); // ✅ false
+  const [musicOn, setMusicOn] = useState(false); 
 
   const weddingDate = new Date("2026-05-05T18:00:00");
 
@@ -39,7 +39,6 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
-  // ✅ AUTO PLAY (desktop + first click mobile)
   useEffect(() => {
     const audio = document.getElementById("music");
 
@@ -48,16 +47,14 @@ function App() {
 
       audio.play()
         .then(() => setMusicOn(true))
-        .catch(() => {}); // mobile block qilsa ignore
+        .catch(() => {}); 
 
       document.removeEventListener("click", playMusic);
       document.removeEventListener("touchstart", playMusic);
     };
-
-    // desktop uchun
+    
     playMusic();
 
-    // mobile uchun
     document.addEventListener("click", playMusic);
     document.addEventListener("touchstart", playMusic);
 
@@ -90,7 +87,6 @@ function App() {
           <div className="corner bottom-left"></div>
           <div className="corner bottom-right"></div>
 
-          {/* ✅ playsInline MUHIM */}
           <audio id="music" loop playsInline>
             <source src={Music} type="audio/mp3"/>
           </audio>
@@ -171,7 +167,6 @@ function App() {
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>

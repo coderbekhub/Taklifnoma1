@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from "react";
-import MuteIcon from './img/mute.png'
-import SoundIcon from './img/sound.png'
-import Sena from './img/sena.jpg'
-import wendingImg from './img/wendingImg.jpg'
-import wendingHall from './img/wendingHall.png'
-import Map from './img/map.png'
-import Call from './img/call.png'
-import Telegram from './img/telegram.png'
-import Instagram from './img/instagram.png'
-import CallIcon from './img/callIcon.png'
-import WebIcon from './img/web.png'
-import Music from './img/Ordinary.ogg'
-import "./style.css";
+import MuteIcon from './img/mute.png';
+import SoundIcon from './img/sound.png';
+import Sena from './img/sena.jpg';
+import wendingImg from './img/wendingImg.jpg';
+import wendingHall from './img/wendingHall.png';
+import Map from './img/map.png';
+import Call from './img/call.png';
+import Telegram from './img/telegram.png';
+import Instagram from './img/instagram.png';
+import CallIcon from './img/callIcon.png';
+import WebIcon from './img/web.png';
+import Music from './img/Ordinary.ogg';
+
 import "./style.scss";
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({});
-  const [musicOn, setMusicOn] = useState(false); 
+  const [musicOn, setMusicOn] = useState(false);
+  const [step, setStep] = useState(0);
+
+  const bride = "Shirin";
+  const groom = "Farhod";
+  const initials = `${groom[0]} & ${bride[0]}`;
 
   const weddingDate = new Date("2026-05-05T18:00:00");
 
-  const Mute = <img className="soundIcons" src={MuteIcon} alt="mute" />
-  const Sound = <img className="soundIcons" src={SoundIcon} alt="sound" />
-
+  // ⏳ countdown
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
@@ -32,71 +35,89 @@ function App() {
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((diff / 1000 / 60) % 60),
-        seconds: Math.floor((diff / 1000) % 60),
       });
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
 
+  // 🎬 intro + music
   useEffect(() => {
-    const audio = document.getElementById("music");
+    const start = () => {
+      const audio = document.getElementById("music");
+      if (audio) {
+        audio.play().then(() => setMusicOn(true)).catch(() => {});
+      }
 
-    const playMusic = () => {
-      if (!audio) return;
+      setTimeout(() => setStep(1), 1000);
+      setTimeout(() => setStep(2), 3000);
+      setTimeout(() => setStep(3), 6000);
 
-      audio.play()
-        .then(() => setMusicOn(true))
-        .catch(() => {}); 
-
-      document.removeEventListener("click", playMusic);
-      document.removeEventListener("touchstart", playMusic);
+      document.removeEventListener("click", start);
     };
-    
-    playMusic();
 
-    document.addEventListener("click", playMusic);
-    document.addEventListener("touchstart", playMusic);
-
+    document.addEventListener("click", start);
   }, []);
 
+  // 🔊 toggle music
   const toggleMusic = () => {
     const audio = document.getElementById("music");
     if (!audio) return;
 
     if (audio.paused) {
-      audio.play().then(() => setMusicOn(true));
+      audio.play();
+      setMusicOn(true);
     } else {
       audio.pause();
       setMusicOn(false);
     }
   };
 
+  // 💳 copy
   const copyCard = () => {
     navigator.clipboard.writeText("8600 1234 5678 9012");
     alert("Karta nusxalandi!");
   };
 
+  const Mute = <img className="soundIcons" src={MuteIcon} alt="mute" />;
+  const Sound = <img className="soundIcons" src={SoundIcon} alt="sound" />;
+
+  // 🎬 INTRO SCREEN
+  if (step !== 3) {
+    return (
+      <div className="intro">
+
+        <video autoPlay muted loop className="bg-video">
+          <source src="https://cdn.coverr.co/videos/coverr-clouds-2765/1080p.mp4" type="video/mp4" />
+        </video>
+
+        <audio id="music" loop>
+          <source src={Music} />
+        </audio>
+
+        {step >= 1 && <h1 className="logo shine">{initials}</h1>}
+        {step >= 2 && <h2 className="fullname fade">{groom} & {bride}</h2>}
+
+      </div>
+    );
+  }
+
+  // 🚀 MAIN SITE
   return (
     <section className="taklifnoma">
+      <audio id="music" loop>
+        <source src={Music} />
+      </audio>
+
+      <button className="music-btn" onClick={toggleMusic}>
+        {musicOn ? Mute : Sound}
+      </button>
+
       <div className="container">
         <div className="taklifnomaCard">
 
-          <div className="corner top-left"></div>
-          <div className="corner top-right"></div>
-          <div className="corner bottom-left"></div>
-          <div className="corner bottom-right"></div>
-
-          <audio id="music" loop playsInline>
-            <source src={Music} type="audio/mp3"/>
-          </audio>
-
-          <button className="music-btn" onClick={toggleMusic}>
-            {musicOn ? Mute : Sound}
-          </button>
-
-          <h1 className="initials">F & Sh</h1>
-          <h2 className="names">Farhod & Shirin</h2>
+          <h1 className="initials">{initials}</h1>
+          <h2 className="names">{groom} & {bride}</h2>
 
           <div className="photo-frame">
             <img className="photo" src={Sena} alt="couple" />
@@ -113,60 +134,34 @@ function App() {
           <div className="info">05/05/2026</div>
 
           <div className="wendingImg">
-            <img src={wendingImg} alt="wending img" />
+            <img src={wendingImg} alt="" />
           </div>
 
-          <div className="maps">
-            <button
-              className="btn"
-              onClick={() => window.open("https://maps.google.com")}
-            >
-              Lokatsiyani ochish
-            </button>
-            <a href="https://maps.google.com" target="_blank">
-              <img src={Map} alt="map" />
-            </a>
-          </div>
-
-          <div className="donateText">
-            <h2>To'yona</h2>
-            <p>Agar bizni tabriklab to'yona jo'natmoqchi bo'lsangiz, quyidagi karta raqamidan foydalanishingiz mumkin!</p>
-          </div>
+          <button className="btn" onClick={() => window.open("https://maps.google.com")}>
+            Lokatsiya
+          </button>
 
           <div className="donateInfo">
-            <span>Karta egasi</span>
-            <h2>Farhod Mannopov</h2>
-            <span>Karta raqami</span>
+            <h2>To'yona</h2>
             <p>8600 1234 5678 9012</p>
             <button className="btn" onClick={copyCard}>Nusxalash</button>
           </div>
 
-          <img className="wendingHall" src={wendingHall} alt="wendingHall" />
+          <img className="wendingHall" src={wendingHall} alt="" />
 
           <div className="contact">
-            <h3>Aloqa uchun</h3>
-            <a href="tel:+998500105610">
-              <img src={Call} alt="call" /> +998 90 123 45 67
+            <a href="tel:+998901234567">
+              <img src={Call} alt="" /> +998 90 123 45 67
             </a>
           </div>
 
           <div className="myInfo">
-            <h2>Zakaz berish uchun</h2>
-            <div>
-              <a href="https://t.me/inSITE_marketing" target="_blank">
-                <img src={Telegram} alt="Telegram" />inSite Marketing
-              </a>
-              <a href="https://www.instagram.com/marketing.insite" target="_blank">
-                <img src={Instagram} alt="Instagram" />marketing.insite
-              </a>
-              <a className="myInfoA" href="https://in-site-marketing.vercel.app/" target="_blank">
-                <img src={WebIcon} alt="Web icon" />inSiteMarketing.uz
-              </a>
-              <a className="myInfoA" href="tel:+998500105610">
-                <img src={CallIcon} alt="Call icon" />+998 (50) 010-56-10
-              </a>
-            </div>
+            <a href="#"><img src={Telegram} alt="" />Telegram</a>
+            <a href="#"><img src={Instagram} alt="" />Instagram</a>
+            <a href="#"><img src={WebIcon} alt="" />Website</a>
+            <a href="tel:+998500105610"><img src={CallIcon} alt="" />Call</a>
           </div>
+
         </div>
       </div>
     </section>

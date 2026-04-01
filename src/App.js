@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import MuteIcon from './img/mute.png';
 import SoundIcon from './img/sound.png';
 import Sena from './img/sena.jpg';
 import wendingImg from './img/wendingImg.jpg';
 import wendingHall from './img/wendingHall.png';
-import Map from './img/map.png';
 import Call from './img/call.png';
 import Telegram from './img/telegram.png';
 import Instagram from './img/instagram.png';
 import CallIcon from './img/callIcon.png';
 import WebIcon from './img/web.png';
 import Music from './img/Ordinary.ogg';
+import Cloud from './img/cloud.mp4';
+import MapIcon from './img/map.png'
+import CopyIcon from './img/copy.png'
 
 import "./style.scss";
 
@@ -19,13 +21,13 @@ function App() {
   const [musicOn, setMusicOn] = useState(false);
   const [step, setStep] = useState(0);
 
-  const bride = "Shirin";
+  const audioRef = useRef(null); 
+
+  const bride = "Munisa";
   const groom = "Farhod";
   const initials = `${groom[0]} & ${bride[0]}`;
-
   const weddingDate = new Date("2026-05-05T18:00:00");
 
-  // ⏳ countdown
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
@@ -41,27 +43,30 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
-  // 🎬 intro + music
   useEffect(() => {
-    const start = () => {
-      const audio = document.getElementById("music");
-      if (audio) {
-        audio.play().then(() => setMusicOn(true)).catch(() => {});
-      }
-
-      setTimeout(() => setStep(1), 1000);
-      setTimeout(() => setStep(2), 3000);
-      setTimeout(() => setStep(3), 6000);
-
-      document.removeEventListener("click", start);
-    };
-
-    document.addEventListener("click", start);
+    setTimeout(() => setStep(1), 500);
+    setTimeout(() => setStep(2), 2000);
+    setTimeout(() => setStep(3), 5000);
   }, []);
 
-  // 🔊 toggle music
+  useEffect(() => {
+    const audio = audioRef.current;
+    const startMusic = () => {
+      if (!audio) return;
+      audio.play()
+        .then(() => setMusicOn(true))
+        .catch(() => {});
+      document.removeEventListener("click", startMusic);
+    };
+    document.addEventListener("click", startMusic);
+
+    return () => {
+      document.removeEventListener("click", startMusic);
+    };
+  }, []);
+
   const toggleMusic = () => {
-    const audio = document.getElementById("music");
+    const audio = audioRef.current;
     if (!audio) return;
 
     if (audio.paused) {
@@ -73,39 +78,17 @@ function App() {
     }
   };
 
-  // 💳 copy
   const copyCard = () => {
     navigator.clipboard.writeText("8600 1234 5678 9012");
     alert("Karta nusxalandi!");
   };
 
-  const Mute = <img className="soundIcons" src={MuteIcon} alt="mute" />;
-  const Sound = <img className="soundIcons" src={SoundIcon} alt="sound" />;
+  const Mute = <img className="soundIcons" src={MuteIcon} alt="MuteIcon" />;
+  const Sound = <img className="soundIcons" src={SoundIcon} alt="SoundIcon" />;
 
-  // 🎬 INTRO SCREEN
-  if (step !== 3) {
-    return (
-      <div className="intro">
-
-        <video autoPlay muted loop className="bg-video">
-          <source src="https://cdn.coverr.co/videos/coverr-clouds-2765/1080p.mp4" type="video/mp4" />
-        </video>
-
-        <audio id="music" loop>
-          <source src={Music} />
-        </audio>
-
-        {step >= 1 && <h1 className="logo shine">{initials}</h1>}
-        {step >= 2 && <h2 className="fullname fade">{groom} & {bride}</h2>}
-
-      </div>
-    );
-  }
-
-  // 🚀 MAIN SITE
   return (
-    <section className="taklifnoma">
-      <audio id="music" loop>
+    <>
+      <audio ref={audioRef} loop>
         <source src={Music} />
       </audio>
 
@@ -113,58 +96,87 @@ function App() {
         {musicOn ? Mute : Sound}
       </button>
 
-      <div className="container">
-        <div className="taklifnomaCard">
+      {step !== 3 && (
+        <div className="intro">
+          <video autoPlay muted loop playsInline className="bg-video">
+            <source src={Cloud} type="video/mp4" />
+          </video>
 
-          <h1 className="initials">{initials}</h1>
-          <h2 className="names">{groom} & {bride}</h2>
-
-          <div className="photo-frame">
-            <img className="photo" src={Sena} alt="couple" />
-          </div>
-
-          <p className="text">
-            sizni ushbu unutilmas lahzalarga guvoh bo’lishga taklif qilamiz
-          </p>
-
-          <div className="countdown">
-            {timeLeft.days} kun {timeLeft.hours} soat {timeLeft.minutes} daqiqa
-          </div>
-
-          <div className="info">05/05/2026</div>
-
-          <div className="wendingImg">
-            <img src={wendingImg} alt="" />
-          </div>
-
-          <button className="btn" onClick={() => window.open("https://maps.google.com")}>
-            Lokatsiya
-          </button>
-
-          <div className="donateInfo">
-            <h2>To'yona</h2>
-            <p>8600 1234 5678 9012</p>
-            <button className="btn" onClick={copyCard}>Nusxalash</button>
-          </div>
-
-          <img className="wendingHall" src={wendingHall} alt="" />
-
-          <div className="contact">
-            <a href="tel:+998901234567">
-              <img src={Call} alt="" /> +998 90 123 45 67
-            </a>
-          </div>
-
-          <div className="myInfo">
-            <a href="#"><img src={Telegram} alt="" />Telegram</a>
-            <a href="#"><img src={Instagram} alt="" />Instagram</a>
-            <a href="#"><img src={WebIcon} alt="" />Website</a>
-            <a href="tel:+998500105610"><img src={CallIcon} alt="" />Call</a>
-          </div>
-
+          {step >= 1 && <h1 className="logo shine">{initials}</h1>}
+          {step >= 2 && <h2 className="fullname fade">{groom} & {bride}</h2>}
         </div>
-      </div>
-    </section>
+      )}
+
+      {step === 3 && (
+        <section className="taklifnoma">
+          <div className="container">
+            <div className="taklifnomaCard">
+
+              <h1 className="initials">{initials}</h1>
+              <h2 className="names">{groom} & {bride}</h2>
+
+              <div className="photo-frame">
+                <img className="photo" src={Sena} alt="" />
+              </div>
+
+              <p className="text">
+                sizni ushbu unutilmas lahzalarga guvoh bo’lishga taklif qilamiz
+              </p>
+              <div className="line"></div>
+
+              <div className="countdown">
+                {timeLeft.days} kun {timeLeft.hours} soat {timeLeft.minutes} daqiqa
+              </div>
+
+              <div className="info">05/05/2026</div>
+
+              <div className="wendingImg">
+                <img src={wendingImg} alt="wendingImg" />
+              </div>
+
+              <button className="btn" onClick={() => window.open("https://maps.google.com")}>
+                Manzilni ko'rish
+              </button>
+              <a className="mapIcon" href="https://maps.google.com">
+                <img src={MapIcon} alt="map" />
+              </a>
+              <div className="donateCard">
+                <h2>To'yona</h2>
+                <p>Bizni tabriklab to'yona yubormoqchi bo'lsangiz, quyidagi karta raqamidan foydalanishingiz mumkin</p>
+                <div className="donateInfo">
+                  <span>Karta egasi</span>
+                  <h2>Farhod Mannopov</h2>
+                  <div className="contact">
+                    <a href="tel:+998901234567">
+                      <img src={Call} alt="" /> +998 90 123 45 67
+                    </a>
+                  </div>
+                  <div class="line"></div>
+                  <h3>8600 1234 5678 9012</h3>
+                  <button className="btn copyBtn" onClick={copyCard}><img src={CopyIcon} alt="CopyIcon" /> Nusxalash</button>
+                </div>
+              </div>
+
+              <img className="wendingHall" src={wendingHall} alt="" />
+
+              {/* <div className="contact">
+                <a href="tel:+998901234567">
+                  <img src={Call} alt="" /> +998 90 123 45 67
+                </a>
+              </div> */}
+
+              <div className="myInfo">
+                <a href="https://t.me/inSITE_marketing"><img src={Telegram} alt="telegram" />Telegram</a>
+                <a href="https://www.instagram.com/marketing.insite"><img src={Instagram} alt="instagram" />Instagram</a>
+                <a href="https://in-site-marketing.vercel.app/"><img src={WebIcon} alt="web site" />Website</a>
+                <a href="tel:+998500105610"><img src={CallIcon} alt="call me" />Call</a>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      )}
+    </>
   );
 }
 

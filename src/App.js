@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import MuteIcon from './img/mute.png';
 import SoundIcon from './img/sound.png';
 import Sena from './img/sena.jpg';
+import Sena2 from './img/sena2.png';
 import wendingImg from './img/wendingImg.jpg';
 import wendingHall from './img/wendingHall.png';
 import Call from './img/call.png';
@@ -116,7 +117,7 @@ function App() {
               <h2 className="names">{groom} & {bride}</h2>
 
               <div className="photo-frame">
-                <img className="photo" src={Sena} alt="" />
+                <img className="photo" src={Sena2} alt="" />
               </div>
 
               <p className="text">
